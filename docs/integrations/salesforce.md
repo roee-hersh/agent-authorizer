@@ -197,7 +197,7 @@ error" and the message is never copied.
 ## Observed actions
 
 An agent-authorizer tool's Salesforce REST requests ([observed actions](../guides/intercepted-actions.md))
-are mapped by the route table in `agent-authorizer/integrations/salesforce/routes.py`; `agent-authorizer routes
+are mapped by the route table in `agent_authorizer/integrations/salesforce/routes.py`; `agent-authorizer routes
 salesforce` prints it. The connection's `url` (the My Domain URL) is the host the table claims, all
 of it.
 

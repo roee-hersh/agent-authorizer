@@ -6,7 +6,7 @@ Agent SDK, Google ADK, CrewAI, Pydantic AI and LlamaIndex), each configured once
 running the agent-authorizer engine in-process on the `demo` connection, so none needs an agent-authorizer server.
 [The agent tools guide](../../docs/guides/agent-tools.md) explains the pattern and how to run them.
 
-The examples that used to be here called an agent-authorizer server through `agent_authorizer_client` (the old
+The examples that used to be here called an agent-authorizer server through `toolpass_client` (the old
 Python client, now replaced by `agent-authorizer`: `AgentAuthorizer.remote()` is the same client) and wrapped
 each tool with `guarded`, which is `agent_authorizer.guarded`. The adapters' tests in
 [`agent-authorizer-py/tests/frameworks`](../../agent-authorizer-py/tests/frameworks) replace these examples' tests.

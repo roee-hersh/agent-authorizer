@@ -151,12 +151,12 @@ needs a conditional write in the upstream system, such as `If-Match` with an ETa
 server older than the `fresh` field rejects it, which `remote` reports as `unknown`, so upgrade the
 server before turning `fresh` on. The [API reference](api.md#fresh-checks) has the details.
 
-## Moving from agent-authorizer-client (Python)
+## Moving from toolpass-client (Python)
 
-`agent-authorizer-client` on PyPI, the old Python client, is replaced by this package and gets no new
+`toolpass-client` on PyPI, the old Python client from when the project was called toolpass, is replaced by this package and gets no new
 releases; installed versions keep working. To move, depend on `agent-authorizer` and change
-`from agent_authorizer_client import AgentAuthorizer` / `AgentAuthorizer()` to `from agent_authorizer import AgentAuthorizer` /
-`AgentAuthorizer.remote()` (and `agent_authorizer_client.strands` to `agent_authorizer.strands`).
+`from toolpass_client import Toolpass` / `Toolpass()` to `from agent_authorizer import AgentAuthorizer` /
+`AgentAuthorizer.remote()` (and `toolpass_client.strands` to `agent_authorizer.strands`).
 
 ## agent-authorizer-client (Node)
 

@@ -139,7 +139,7 @@ Graph error messages are never copied into a decision text; only the error code 
 ## Observed actions
 
 An agent-authorizer tool's Microsoft Graph requests ([observed actions](../guides/intercepted-actions.md))
-are mapped by the route table in `agent-authorizer/integrations/microsoft365/routes.py`; `agent-authorizer routes
+are mapped by the route table in `agent_authorizer/integrations/microsoft365/routes.py`; `agent-authorizer routes
 microsoft365` prints it. The connection's `url` is the host (a national cloud's Graph too) and
 `/v1.0` is the API version the table reads.
 

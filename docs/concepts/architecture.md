@@ -84,11 +84,11 @@ sequenceDiagram
     S-->>T: {"decision": ..., "reason": "<code>: <text>"}
 ```
 
-1. **Server** (`agent-authorizer/server.py`, server only). Accepts `POST /check` with a bearer API key
+1. **Server** (`agent_authorizer/server.py`, server only). Accepts `POST /check` with a bearer API key
    compared in constant time, reads at most 64 KiB, and rejects unknown JSON fields. `GET /healthz`
-   is the only unauthenticated route. `POST /mcp` (`agent-authorizer/_mcp_endpoint.py`) puts the same check in
+   is the only unauthenticated route. `POST /mcp` (`agent_authorizer/_mcp_endpoint.py`) puts the same check in
    front of an assistant as an MCP tool, behind the same key ([Ask who may do what](../guides/ask.md)).
-2. **Engine** (`agent-authorizer/core/engine.py`). Validates the request (an email of at most 320 bytes, at most
+2. **Engine** (`agent_authorizer/core/engine.py`). Validates the request (an email of at most 320 bytes, at most
    200 groups, no control characters), finds the connection and the action, and consults the
    decision cache.
 3. **Identity resolution**. Each integration maps the caller's email to its own account: a SAML
@@ -103,7 +103,7 @@ sequenceDiagram
 5. **Decision**. An integration returns `deny` only when the system positively said no. Every
    error, timeout, rate limit, rejected credential or construct agent-authorizer does not understand becomes
    `unknown`. `allow` and `deny` are cached. `unknown` never is.
-6. **Decision log** (`agent-authorizer/core/declog.py`). One JSON line per answered check, with the upstream calls
+6. **Decision log** (`agent_authorizer/core/declog.py`). One JSON line per answered check, with the upstream calls
    it was based on. See [Decision log](../guides/operating.md#decision-log).
 
 ## Three answers

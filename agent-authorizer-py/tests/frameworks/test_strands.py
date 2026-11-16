@@ -486,7 +486,7 @@ def test_bad_rules(fw_strands_hp: RecordingAgentAuthorizer) -> None:
 
 
 def test_direct_hook_call(fw_strands_hp: RecordingAgentAuthorizer) -> None:
-    """The handler's hook on its own, the way the agent-authorizer-client test called it."""
+    """The handler's hook on its own, the way the toolpass-client test called it."""
     from types import SimpleNamespace
 
     h = handler(fw_strands_hp)

@@ -327,7 +327,7 @@ Marked `# UNVERIFIED:` in the code:
   parent `PathPrefix` is a prefix match so they are expected to be listed.
 - For resource `all`, `ResourceArns` is omitted so IAM applies its documented default of `*`, rather than
   sending `*` as an ARN.
-- The China partition IAM endpoint and signing region (`agent-authorizer/authx`).
+- The China partition IAM endpoint and signing region (`agent_authorizer/authx`).
 - Whether SCP evaluation (`OrganizationsDecisionDetail`) needs any `organizations:*` permission on
   `role_arn`; none is granted in the policy above.
 

@@ -522,9 +522,9 @@ agent-authorizer serve    -config agent-authorizer.yaml      # POST /check, GET 
 - [Documentation](https://github.com/roee-hersh/toolpass/tree/main/docs), including one page per
   integration with the credential to create.
 - [Architecture and trust boundaries](https://github.com/roee-hersh/toolpass/blob/main/docs/concepts/architecture.md).
-- `agent-authorizer-client` on PyPI, the old Python client, is replaced by this package and gets no new
+- `toolpass-client` on PyPI, the old Python client from when the project was called toolpass, is replaced by this package and gets no new
   releases; installed versions keep working. To move, depend on `agent-authorizer` and change
-  `from agent_authorizer_client import AgentAuthorizer` / `AgentAuthorizer()` to `from agent_authorizer import AgentAuthorizer` /
-  `AgentAuthorizer.remote()` (and `agent_authorizer_client.strands` to `agent_authorizer.strands`).
+  `from toolpass_client import Toolpass` / `Toolpass()` to `from agent_authorizer import AgentAuthorizer` /
+  `AgentAuthorizer.remote()` (and `toolpass_client.strands` to `agent_authorizer.strands`).
 
 Apache-2.0.
