@@ -78,7 +78,7 @@ def audit_sink(tracer: Any = None, *, then: AuditSink | None = None) -> AuditSin
                 if isinstance(action, Mapping):
                     span.add_event(
                         "agent_authorizer.request",
-                        {f"agent-authorizer.{k}": _str(action[k]) for k in _REQUEST_ATTRS if action.get(k) is not None},
+                        {f"agent_authorizer.{k}": _str(action[k]) for k in _REQUEST_ATTRS if action.get(k) is not None},
                         timestamp=end,
                     )
             if event.outcome == "ran":
