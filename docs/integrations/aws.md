@@ -209,8 +209,8 @@ the ARN the request acts on, so a boto3 call needs no declaration. The service c
 operation from the protocol: method and path for S3 and Lambda, `Action=` for IAM and STS,
 `X-Amz-Target` for Secrets Manager. An action IAM authorizes with no resource (`iam:ListRoles`,
 `s3:ListAllMyBuckets`) is checked on `all`; `sts:GetCallerIdentity` concerns the agent itself and is
-not checked. `sts:GetSessionToken` is refused: it returns temporary credentials with the agent's own
-permissions, and IAM policies do not authorize it.
+not checked. `sts:GetSessionToken` and `sts:GetScopedCredentials` are refused: they return temporary
+credentials of the agent's own session, and IAM policies do not authorize them.
 
 | Service | Checked on |
 |---|---|

@@ -527,6 +527,7 @@ IAM_UNROUTED: dict[str, str] = {
     "GetAccessKeyLastUsed": "names an access key, not the user it belongs to",
     "GetServiceLinkedRoleDeletionStatus": "names a deletion task, not the role",
     "PutAccountProperties": "also needs iam:CreateServiceLinkedRole on a role the request does not name",
+    "UpdateOpenIDConnectProvider": "sets identity propagation and the IAM Identity Center association, allowed by condition keys the check does not evaluate",
 }
 
 _SESSION_EXTRAS = ("Tags", "TransitiveTagKeys", "SourceIdentity", "ProvidedContexts")
@@ -544,6 +545,7 @@ STS_UNROUTED: dict[str, str] = {
     "GetFederationToken": "the federated user's ARN carries the account id, which the request does not",
     "GetDelegatedAccessToken": "trades a delegation token the request does not tie to a resource",
     "GetSessionToken": "returns temporary credentials with the agent's own permissions, which IAM policies do not authorize",
+    "GetScopedCredentials": "returns narrower credentials of the agent's own session, which IAM policies do not authorize",
 }
 
 _SECRET = ("secret:",)
@@ -765,6 +767,9 @@ LAMBDA_PATHS: tuple[tuple[str, str, str], ...] = (
     ("POST", "/2025-12-01/durable-execution-callbacks/{CallbackId}/heartbeat", "SendDurableExecutionCallbackHeartbeat"),
     ("POST", "/2025-12-01/durable-execution-callbacks/{CallbackId}/succeed", "SendDurableExecutionCallbackSuccess"),
     ("POST", "/2025-12-01/durable-executions/{DurableExecutionArn}/stop", "StopDurableExecution"),
+    ("DELETE", "/2025-12-01/durable-executions/{DurableExecutionArn}", "DeleteDurableExecution"),
+    ("POST", "/2025-12-01/durable-executions/{DurableExecutionArn}/pause", "PauseDurableExecution"),
+    ("POST", "/2025-12-01/durable-executions/{DurableExecutionArn}/resume", "ResumeDurableExecution"),
     ("POST", "/2017-03-31/tags/{Resource}", "TagResource"),
     ("DELETE", "/2017-03-31/tags/{Resource}", "UntagResource"),
     ("PUT", "/2015-03-31/functions/{FunctionName}/aliases/{Name}", "UpdateAlias"),
@@ -841,6 +846,9 @@ LAMBDA: dict[str, _LambdaOp] = {
     "RemoveLayerVersionPermission": _LambdaOp("layerversion", "destructive"),
     "RemovePermission": _LambdaOp("function", "destructive", qualifier=True),
     "StopDurableExecution": _LambdaOp("durable", "write"),
+    "DeleteDurableExecution": _LambdaOp("durable", "destructive"),
+    "PauseDurableExecution": _LambdaOp("durable", "write"),
+    "ResumeDurableExecution": _LambdaOp("durable", "write"),
     "TagResource": _LambdaOp("tags", "write"),
     "UntagResource": _LambdaOp("tags", "write"),
     "UpdateAlias": _LambdaOp("function", "write"),

@@ -634,6 +634,7 @@ _OTHER = (
     "/api/v2/web-integrations",
     "/api/v2/widgets",
     "/api/v2/wif/oidc",
+    "/api/v2/wif/terraform",
 )
 
 _INTAKE = "data intake authenticates with the API key alone; no user permission governs it"
