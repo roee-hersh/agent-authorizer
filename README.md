@@ -1,6 +1,6 @@
 # agent-authorizer
 
-[![ci](https://github.com/roee-hersh/toolpass/actions/workflows/ci.yaml/badge.svg)](https://github.com/roee-hersh/toolpass/actions/workflows/ci.yaml)
+[![ci](https://github.com/roee-hersh/agent-authorizer/actions/workflows/ci.yaml/badge.svg)](https://github.com/roee-hersh/agent-authorizer/actions/workflows/ci.yaml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 
 **Authorizes what an AI agent does against the permissions of the user it is acting for. The
@@ -127,7 +127,7 @@ See it on your machine, with no accounts: two people use an MCP server whose too
 several of five systems, and the real integrations decide every request.
 
 ```sh
-git clone https://github.com/roee-hersh/toolpass && cd toolpass/agent-authorizer-py
+git clone https://github.com/roee-hersh/agent-authorizer && cd agent-authorizer/agent-authorizer-py
 pip install -e . && python examples/demo/run.py -open
 ```
 

@@ -1,6 +1,6 @@
 # agent-authorizer Helm chart
 
-Runs [agent-authorizer](https://github.com/roee-hersh/toolpass) on Kubernetes: one Deployment of the
+Runs [agent-authorizer](https://github.com/roee-hersh/agent-authorizer) on Kubernetes: one Deployment of the
 `ghcr.io/roee-hersh/agent-authorizer` image behind a ClusterIP Service, the config file from a ConfigMap,
 the API key from a Secret, liveness and readiness probes on `GET /healthz`, and a non-root,
 read-only-root-filesystem security context.

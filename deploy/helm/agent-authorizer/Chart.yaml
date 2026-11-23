@@ -6,9 +6,9 @@ type: application
 # deploys the latest published image.
 version: 0.0.0
 appVersion: "latest"
-home: https://github.com/roee-hersh/toolpass
+home: https://github.com/roee-hersh/agent-authorizer
 sources:
-  - https://github.com/roee-hersh/toolpass
+  - https://github.com/roee-hersh/agent-authorizer
 keywords:
   - authorization
   - permissions

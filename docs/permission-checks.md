@@ -3,7 +3,7 @@
 > This page covers agent-authorizer's permission engine (`AgentAuthorizer`, `guarded`, `agent-authorizer serve`). It works on
 > its own, and inside [agent-authorizer's secure tools](../README.md) as `permission_check`.
 
-[![ci](https://github.com/roee-hersh/toolpass/actions/workflows/ci.yaml/badge.svg)](https://github.com/roee-hersh/toolpass/actions/workflows/ci.yaml)
+[![ci](https://github.com/roee-hersh/agent-authorizer/actions/workflows/ci.yaml/badge.svg)](https://github.com/roee-hersh/agent-authorizer/actions/workflows/ci.yaml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](../LICENSE)
 
 **Permission checks for AI agents and bots, answered live by the system they act in.**
@@ -105,7 +105,7 @@ Not goals: approving changes, making check and action atomic, or proving who the
 
 ```sh
 pip install agent-authorizer
-curl -sO https://raw.githubusercontent.com/roee-hersh/toolpass/main/examples/agent-authorizer.yaml
+curl -sO https://raw.githubusercontent.com/roee-hersh/agent-authorizer/main/examples/agent-authorizer.yaml
 ```
 
 The example config has a `demo` connection that talks to nothing. Ask it, in-process:

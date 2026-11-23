@@ -310,8 +310,8 @@ no service to deploy; the same package also runs it as a server (`agent-authoriz
 
 ### In-process
 
-From an agent-authorizer YAML file ([example](https://github.com/roee-hersh/toolpass/blob/main/examples/agent-authorizer.yaml),
-[reference](https://github.com/roee-hersh/toolpass/blob/main/docs/reference/configuration.md)):
+From an agent-authorizer YAML file ([example](https://github.com/roee-hersh/agent-authorizer/blob/main/examples/agent-authorizer.yaml),
+[reference](https://github.com/roee-hersh/agent-authorizer/blob/main/docs/reference/configuration.md)):
 
 ```python
 from agent_authorizer import AgentAuthorizer
@@ -485,9 +485,9 @@ agent = FunctionAgent(tools=guard.wrap(tools), llm=llm)
 ```
 
 Complete, runnable examples:
-[agent-authorizer-py/examples](https://github.com/roee-hersh/toolpass/tree/main/agent-authorizer-py/examples). Each
+[agent-authorizer-py/examples](https://github.com/roee-hersh/agent-authorizer/tree/main/agent-authorizer-py/examples). Each
 adapter's docstring and the
-[agent guide](https://github.com/roee-hersh/toolpass/blob/main/docs/guides/agent-tools.md) cover
+[agent guide](https://github.com/roee-hersh/agent-authorizer/blob/main/docs/guides/agent-tools.md) cover
 groups, `strict`, and what each framework does with a refusal.
 
 ### Extras
@@ -519,9 +519,9 @@ agent-authorizer serve    -config agent-authorizer.yaml      # POST /check, GET 
 
 ### More
 
-- [Documentation](https://github.com/roee-hersh/toolpass/tree/main/docs), including one page per
+- [Documentation](https://github.com/roee-hersh/agent-authorizer/tree/main/docs), including one page per
   integration with the credential to create.
-- [Architecture and trust boundaries](https://github.com/roee-hersh/toolpass/blob/main/docs/concepts/architecture.md).
+- [Architecture and trust boundaries](https://github.com/roee-hersh/agent-authorizer/blob/main/docs/concepts/architecture.md).
 - `toolpass-client` on PyPI, the old Python client from when the project was called toolpass, is replaced by this package and gets no new
   releases; installed versions keep working. To move, depend on `agent-authorizer` and change
   `from toolpass_client import Toolpass` / `Toolpass()` to `from agent_authorizer import AgentAuthorizer` /

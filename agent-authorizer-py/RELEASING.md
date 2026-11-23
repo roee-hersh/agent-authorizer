@@ -38,7 +38,7 @@ registries after every release.
 
 **PyPI.** `agent-authorizer` needs a trusted publisher. On pypi.org, under Your account → Publishing, add a
 pending publisher (the project does not exist yet): project `agent-authorizer`, owner `roee-hersh`,
-repository `toolpass`, workflow `release.yaml`, environment `pypi`. The first release that runs
+repository `agent-authorizer`, workflow `release.yaml`, environment `pypi`. The first release that runs
 the `pypi` job creates the project. `PUBLISH_PYPI` must be `true`.
 
 **npm.** npm can only configure trusted publishing for a package that exists, so:
@@ -48,6 +48,6 @@ the `pypi` job creates the project. `PUBLISH_PYPI` must be `true`.
    (the account needs two-factor authentication). Until then, the release's `npm` job finds no
    `agent-authorizer-client` on npm and skips, with a note in the run's summary.
 2. On npmjs.com, `agent-authorizer-client` → Settings → Trusted publishing: GitHub Actions, owner
-   `roee-hersh`, repository `toolpass`, workflow `release.yaml`, environment `npm`.
+   `roee-hersh`, repository `agent-authorizer`, workflow `release.yaml`, environment `npm`.
 3. Set the Actions variable `PUBLISH_NPM` to `true`. The workflow authenticates with its OpenID
    Connect token.

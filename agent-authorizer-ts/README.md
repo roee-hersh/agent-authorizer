@@ -1,6 +1,6 @@
 # agent-authorizer-client
 
-The Node.js and TypeScript client for [agent-authorizer](https://github.com/roee-hersh/toolpass): before
+The Node.js and TypeScript client for [agent-authorizer](https://github.com/roee-hersh/agent-authorizer): before
 your AI agent acts for a user, ask the system that owns the resource whether that user may do it.
 
 ```sh
@@ -16,7 +16,7 @@ It needs a running agent-authorizer server: the `ghcr.io/roee-hersh/agent-author
 package; in Python you can also run its engine in-process, with no server). The client has no
 dependencies; it uses Node's built-in `fetch` (Node 18.17 or later). It ships as an ES module with
 type declarations. Its source is in
-[`agent-authorizer-ts`](https://github.com/roee-hersh/toolpass/tree/main/agent-authorizer-ts).
+[`agent-authorizer-ts`](https://github.com/roee-hersh/agent-authorizer/tree/main/agent-authorizer-ts).
 
 ```ts
 import { AsyncLocalStorage } from "node:async_hooks";
@@ -54,5 +54,5 @@ await tp.require(...);  // rejects with PermissionDenied unless allow
 // ID token, for a connection that reads the groups from it: oidc_issuer).
 ```
 
-Framework examples: [examples/agent-ts](https://github.com/roee-hersh/toolpass/tree/main/examples/agent-ts).
-The guide: [docs/guides/agent-tools.md](https://github.com/roee-hersh/toolpass/blob/main/docs/guides/agent-tools.md).
+Framework examples: [examples/agent-ts](https://github.com/roee-hersh/agent-authorizer/tree/main/examples/agent-ts).
+The guide: [docs/guides/agent-tools.md](https://github.com/roee-hersh/agent-authorizer/blob/main/docs/guides/agent-tools.md).

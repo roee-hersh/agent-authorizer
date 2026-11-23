@@ -45,10 +45,10 @@ otel = ["opentelemetry-api>=1.20"]
 agent-authorizer = "agent_authorizer.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/roee-hersh/toolpass"
-Documentation = "https://github.com/roee-hersh/toolpass/tree/main/docs"
-Issues = "https://github.com/roee-hersh/toolpass/issues"
-Source = "https://github.com/roee-hersh/toolpass/tree/main/agent-authorizer-py"
+Homepage = "https://github.com/roee-hersh/agent-authorizer"
+Documentation = "https://github.com/roee-hersh/agent-authorizer/tree/main/docs"
+Issues = "https://github.com/roee-hersh/agent-authorizer/issues"
+Source = "https://github.com/roee-hersh/agent-authorizer/tree/main/agent-authorizer-py"
 
 [tool.hatch.version]
 path = "src/agent_authorizer/_version.py"

@@ -10,7 +10,7 @@ here touches a real system; step 4 connects one.
 ```sh
 python3 -m venv .venv && . .venv/bin/activate
 pip install agent-authorizer
-curl -sO https://raw.githubusercontent.com/roee-hersh/toolpass/main/examples/agent-authorizer.yaml
+curl -sO https://raw.githubusercontent.com/roee-hersh/agent-authorizer/main/examples/agent-authorizer.yaml
 ```
 
 The example config has a `demo` connection that talks to nothing. In it, `admin@example.com` may

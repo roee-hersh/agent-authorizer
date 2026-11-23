@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "description": "Check with agent-authorizer whether a user may do something before your AI agent does it for them.",
   "keywords": ["ai-agents", "authorization", "permissions", "llm", "tools", "mcp"],
-  "homepage": "https://github.com/roee-hersh/toolpass/tree/main/agent-authorizer-ts",
-  "bugs": "https://github.com/roee-hersh/toolpass/issues",
+  "homepage": "https://github.com/roee-hersh/agent-authorizer/tree/main/agent-authorizer-ts",
+  "bugs": "https://github.com/roee-hersh/agent-authorizer/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/roee-hersh/toolpass.git",
+    "url": "git+https://github.com/roee-hersh/agent-authorizer.git",
     "directory": "agent-authorizer-ts"
   },
   "license": "Apache-2.0",
