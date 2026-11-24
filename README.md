@@ -128,7 +128,7 @@ several of five systems, and the real integrations decide every request.
 
 ```sh
 git clone https://github.com/roee-hersh/agent-authorizer && cd agent-authorizer/agent-authorizer-py
-pip install -e . && python examples/demo/run.py -open
+pip install -e ".[crypto]" && python examples/demo/run.py -open
 ```
 
 Nothing to register and nothing written to disk: an agent whose permissions come from the server
