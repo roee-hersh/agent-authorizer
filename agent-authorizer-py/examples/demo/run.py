@@ -3,7 +3,7 @@ agent-authorizer, and the agent-authorizer server's dashboard shows every tool r
 ran for, and each request it made to GitHub, Jira, Slack, Linear and
 Kubernetes, allowed or refused by the system itself.
 
-    pip install agent-authorizer            # or, from agent-authorizer-py: pip install -e .
+    pip install -e ".[crypto]"      # in agent-authorizer-py, from a clone of the repository
     python examples/demo/run.py     # then open the address it prints
 
 Dana, a developer, opens a pull request, ships to staging, is refused prod,

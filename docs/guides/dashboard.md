@@ -140,7 +140,7 @@ Arguments are not exported. The sink uses the global tracer provider your applic
 `examples/demo/run.py` in `agent-authorizer-py` runs the whole picture on your machine, with no accounts:
 
 ```sh
-cd agent-authorizer-py && pip install -e .
+cd agent-authorizer-py && pip install -e ".[crypto]"
 python examples/demo/run.py -open
 ```
 

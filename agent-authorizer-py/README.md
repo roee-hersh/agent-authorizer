@@ -12,7 +12,7 @@ agent that reports to it: who it ran for, and every request each run made inside
 Slack and the other systems, allowed or refused. A toolkit whose permissions are remote reports
 with nothing else configured; `agent_authorizer.otel` exports each run as a span. See
 [the dashboard guide](../docs/guides/dashboard.md), and `python examples/demo/run.py` for five
-systems at once.
+systems at once (from a clone, after `pip install -e ".[crypto]"`).
 
 Teams write custom tools for their own agents: open a pull request against the GitOps repository,
 scale a deployment, read customer records, post to Slack. Those tools usually run with one service
@@ -281,7 +281,7 @@ has the details; `agent-authorizer routes github` prints what agent-authorizer u
 ## Run the example and the tests
 
 ```sh
-pip install -e . pytest pytest-timeout hypothesis
+pip install -e ".[crypto]" pytest pytest-timeout hypothesis
 python examples/ops_agent.py
 python -m pytest -q
 ```
