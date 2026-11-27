@@ -12,7 +12,7 @@ agent-authorizer-py directory, with no network and no model:
     python examples/wire_agent.py
 
 A fake GitHub answers on 127.0.0.1; a stand-in permission engine says that
-admin@example.com may open pull requests and dana@example.com may not.
+admin@example.com may open pull requests and developer@example.com may not.
 """
 
 from __future__ import annotations
@@ -120,12 +120,12 @@ def main(say: Callable[[str], None] = print) -> list[tuple[str, str]]:
         say(f"          actions: {actions}")
         outcomes.append((label, outcome))
 
-    say("== dana@example.com asks: 'scale gitops to 3 replicas' ==\n")
-    with Session("dana@example.com").active():
-        step("propose_replicas(acme/gitops, 3) as dana", propose_replicas, repo="acme/gitops", replicas=3)
+    say("== developer@example.com asks: 'scale gitops to 3 replicas' ==\n")
+    with Session("developer@example.com").active():
+        step("propose_replicas(acme/gitops, 3) as a developer", propose_replicas, repo="acme/gitops", replicas=3)
     say("\n== admin@example.com asks the same ==\n")
     with Session("admin@example.com").active():
-        step("propose_replicas(acme/gitops, 3) as admin", propose_replicas, repo="acme/gitops", replicas=3)
+        step("propose_replicas(acme/gitops, 3) as an admin", propose_replicas, repo="acme/gitops", replicas=3)
     say(f"\nrequests GitHub received: {FakeGitHub.seen}")
     server.shutdown()
     return outcomes

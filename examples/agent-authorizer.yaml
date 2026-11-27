@@ -22,7 +22,7 @@ connections:
   # Smoke-test connection. Talks to nothing. Remove it once real connections work.
   - id: demo
     integration: fake
-    users: dana@example.com
+    users: dana@example.com, developer@example.com
     admins: admin@example.com
 
   # - id: k8s-prod-eu

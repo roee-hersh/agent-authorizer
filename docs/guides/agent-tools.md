@@ -423,12 +423,12 @@ const writeThing = tool({
 ## Run the examples
 
 From a clone of the repository, install agent-authorizer with the framework's extra and the model provider
-the example names in its docstring, then run it as dana (refused) and as the admin (allowed):
+the example names in its docstring, then run it as a developer (refused) and as the admin (allowed):
 
 ```sh
 pip install -e "./agent-authorizer-py[strands]" "strands-agents[anthropic]"
 export ANTHROPIC_API_KEY=...
-python agent-authorizer-py/examples/strands_agent.py dana@example.com
+python agent-authorizer-py/examples/strands_agent.py developer@example.com
 python agent-authorizer-py/examples/strands_agent.py admin@example.com
 ```
 

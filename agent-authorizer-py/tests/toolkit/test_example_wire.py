@@ -19,10 +19,10 @@ def test_wire_example_runs():
         sys.modules.pop("wire_agent", None)
     outcomes = module.main(say=lambda _: None)
     assert outcomes == [
-        ("propose_replicas(acme/gitops, 3) as dana", "not_authorized"),
-        ("propose_replicas(acme/gitops, 3) as admin", "ran"),
+        ("propose_replicas(acme/gitops, 3) as a developer", "not_authorized"),
+        ("propose_replicas(acme/gitops, 3) as an admin", "ran"),
     ]
-    # Dana's read happened (as the agent); her pull request never reached GitHub.
+    # The developer's read happened (as the agent); their pull request never reached GitHub.
     assert module.FakeGitHub.seen == [
         "GET /api/v3/repos/acme/gitops/contents/deploy.yaml",
         "GET /api/v3/repos/acme/gitops/contents/deploy.yaml",
