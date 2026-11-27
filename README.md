@@ -12,9 +12,9 @@ An agent's tools need a credential to work: an Okta service user, an OAuth app w
 credentials, a GitHub App, a Jira API token. Whatever that credential can do, the agent can do, for
 everyone who talks to it.
 
-Dana cannot merge to `acme/gitops-prod`. The agent's GitHub App can. When Dana asks the agent to
-merge, GitHub sees the App and allows it. Dana now has the agent's permissions, and so does anyone
-whose email or web page the agent reads. This is the
+A developer cannot merge to `acme/gitops-prod`. The agent's GitHub App can. When that developer asks
+the agent to merge, GitHub sees the App and allows it. The developer now has the agent's permissions,
+and so does anyone whose email or web page the agent reads. This is the
 [confused deputy](https://en.wikipedia.org/wiki/Confused_deputy_problem) problem, and OWASP lists it
 for agents as Identity and Privilege Abuse (ASI03).
 
@@ -67,7 +67,7 @@ def propose_fix(repo: str, path: str, fix: str) -> str:
     return pr.html_url
 
 
-with Session("dana@example.com").active():   # the user your app authenticated, never the model
+with Session("user@example.com").active():   # the user your app authenticated, never the model
     agent.run(prompt)
 ```
 
@@ -121,7 +121,7 @@ agent-authorizer serve -config agent-authorizer.yaml        # your connections a
 open https://agent-authorizer.internal/dashboard/   # every run, from every agent
 ```
 
-![The dashboard: 9 tool calls by Dana and Sam, a map from the MCP server shop to its tools open_pr, ship, report_bug and status to the systems they reached (Kubernetes, GitHub, Jira, Slack, Linear), and the calls, Sam's refused at Linear, Kubernetes and GitHub](docs/assets/dashboard.png)
+![The dashboard: 9 tool calls by two users, a map from the MCP server shop to its tools open_pr, ship, report_bug and status to the systems they reached (Kubernetes, GitHub, Jira, Slack, Linear), and the calls, one user's refused at Linear, Kubernetes and GitHub](docs/assets/dashboard.png)
 
 See it on your machine, with no accounts: two people use an MCP server whose tools each use
 several of five systems, and the real integrations decide every request.
@@ -152,9 +152,9 @@ you can run with no network and no model:
 [refused] post_slack(#ops), reworded
           -> exfiltration_risk: this session has read private data and seen untrusted content,
              and this tool sends data out
-[refused] open_gitops_pr(acme/gitops-prod) as dana
-          -> not_authorized: agent-authorizer deny ... dana@example.com is not an admin
-[ran]     open_gitops_pr(acme/gitops-prod) as admin
+[refused] open_gitops_pr(acme/gitops-prod) as a developer
+          -> not_authorized: agent-authorizer deny ... developer@example.com is not an admin
+[ran]     open_gitops_pr(acme/gitops-prod) as an admin
 ```
 
 ## What a tool can declare
@@ -196,8 +196,8 @@ past it.
 ## Permission checks
 
 Your agent acts with its own credential, which can usually do more than the person asking. When
-Dana asks it to delete an issue she couldn't delete herself, the agent can. agent-authorizer asks the
-system that owns the resource, live, whether *Dana* may do it:
+a user asks it to delete an issue they couldn't delete themselves, the agent can. agent-authorizer asks
+the system that owns the resource, live, whether *that user* may do it:
 
 ```python
 from agent_authorizer import AgentAuthorizer, permission_check

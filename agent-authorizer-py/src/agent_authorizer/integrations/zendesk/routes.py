@@ -452,6 +452,8 @@ ROUTES = RouteTable(
         ("PUT", f"{_A}/users/me/settings"): "the agent's own settings, not the user's",
         ("DELETE", f"{_A}/users/me/logout"): "logs the agent's own credential out",
         ("PUT", f"{_A}/users/{{user_id}}/password"): "changes a user's own password with the old one; not for agents",
+        ("POST", f"{_A}/users/{{user_id}}/clone"): "creates a second user in another brand and moves tickets to it: several objects, one check covers one",
+        ("POST", f"{_A}/users/{{user_id}}/move_references"): "moves a brand's tickets from this user to another: several objects, one check covers one",
         ("POST", f"{_A}/skips"): "records that an agent skipped a ticket: not modelled",
         **_gone("ticket pins are not modelled", f"{_A}/ticket_content_pins", f"{_A}/ticket_content_pins/{{content_pin_id}}"),
         **_gone("bookmarks are the agent's own and not modelled", f"{_A}/bookmarks", f"{_A}/bookmarks/{{bookmark_id}}"),
