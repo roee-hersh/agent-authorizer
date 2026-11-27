@@ -37,7 +37,7 @@ def propose_fix(repo: str, path: str, fix: str) -> str:
     return pr.html_url
 
 
-with Session("dana@example.com").active():           # the user your app authenticated
+with Session("user@example.com").active():           # the user your app authenticated
     agent.run(prompt)
 ```
 
@@ -318,9 +318,9 @@ from agent_authorizer import AgentAuthorizer
 
 tp = AgentAuthorizer.from_config("agent-authorizer.yaml")
 
-d = tp.check("dana@example.com", "jira-main", "DELETE_ISSUES", "issue:PAY-123")
+d = tp.check("user@example.com", "jira-main", "DELETE_ISSUES", "issue:PAY-123")
 d.decision  # "allow", "deny" or "unknown"
-d.reason    # "denied: Dana Levi does not hold DELETE_ISSUES on issue PAY-123"
+d.reason    # "denied: the user does not hold DELETE_ISSUES on issue PAY-123"
 d.allowed   # True only for allow
 
 tp.allowed(...)                # True or False
@@ -512,7 +512,7 @@ The package installs `agent-authorizer`:
 agent-authorizer validate -config agent-authorizer.yaml      # the file, references, certificates; no network
 agent-authorizer probe    -config agent-authorizer.yaml      # each connection's credential, live
 agent-authorizer check    -config agent-authorizer.yaml -connection jira-main \
-  -user dana@example.com -action DELETE_ISSUES -resource issue:PAY-123
+  -user user@example.com -action DELETE_ISSUES -resource issue:PAY-123
 agent-authorizer catalog  jira                       # an integration's keys and actions
 agent-authorizer serve    -config agent-authorizer.yaml      # POST /check, GET /healthz, the dashboard and /mcp on :8080
 ```

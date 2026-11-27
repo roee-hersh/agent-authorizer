@@ -21,6 +21,6 @@ def test_ops_agent_example():
         "ran",  # private tickets
         "out_of_scope",  # #random
         "exfiltration_risk",  # the trifecta: private data, untrusted content, and a way out
-        "not_authorized",  # dana's PR, denied by agent-authorizer (or the stand-in)
+        "not_authorized",  # the developer's PR, denied by agent-authorizer (or the stand-in)
         "ran",  # the admin's PR
     ]

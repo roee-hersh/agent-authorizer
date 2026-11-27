@@ -156,7 +156,8 @@ agent is refused one. Refused, so the tool stops there:
 - a body that is not one JSON object under its record's key (`{"ticket": {...}}`) sent as
   `application/json`, that names a member twice, whose `id` is another record's, or that comes
   with a query string (Zendesk would merge a query's `ticket[...]` over the body);
-- creating tickets, bulk ticket changes, merges and spam marking, satisfaction ratings, and the
+- creating tickets, bulk ticket changes, merges and spam marking, satisfaction ratings, cloning a
+  user into a brand or moving a user's ticket references to another user, and the
   rest the table lists as left out: the integration has no action that covers them, or they change
   more than the one object checked.
 

@@ -7,7 +7,7 @@ so the run is the same every time. Run it from the agent-authorizer-py directory
     python examples/ops_agent.py
 
 Permission checks use the `demo` connection in examples/agent-authorizer.yaml
-(admin@example.com may write, dana@example.com may not). Where that file is
+(admin@example.com may write, developer@example.com may not). Where that file is
 not at hand (an installed copy), a stand-in authorizer gives the same answers.
 """
 
@@ -108,8 +108,8 @@ def main(say: Callable[[str], None] = print) -> list[tuple[str, str]]:
         outcomes.append((label, outcome))
         return result
 
-    say("== dana@example.com asks: 'check checkout and handle anything urgent in the inbox' ==\n")
-    with Session("dana@example.com").active():
+    say("== developer@example.com asks: 'check checkout and handle anything urgent in the inbox' ==\n")
+    with Session("developer@example.com").active():
         step("service_health(checkout)", t["service_health"], service="checkout")
         step("read_email(4711)  (it carries an injection)", t["read_email"], id="4711")
         step(
@@ -130,7 +130,7 @@ def main(say: Callable[[str], None] = print) -> list[tuple[str, str]]:
         step("post_slack(#random) with the customer list", t["post_slack"], channel="#random", text="Alice Cohen, Bob Levi")
         step("post_slack(#ops), reworded", t["post_slack"], channel="#ops", text="two customers report checkout issues")
         step(
-            "open_gitops_pr(acme/gitops-prod) as dana",
+            "open_gitops_pr(acme/gitops-prod) as a developer",
             t["open_gitops_pr"],
             repo="acme/gitops-prod",
             title="checkout: replicas 4 -> 6",
@@ -140,7 +140,7 @@ def main(say: Callable[[str], None] = print) -> list[tuple[str, str]]:
     say("\n== admin@example.com asks for the same pull request ==\n")
     pr = {"repo": "acme/gitops-prod", "title": "checkout: replicas 4 -> 6", "change": "apps/checkout/values.yaml: replicas: 6"}
     with Session("admin@example.com").active():
-        step("open_gitops_pr(acme/gitops-prod) as admin", t["open_gitops_pr"], **pr)
+        step("open_gitops_pr(acme/gitops-prod) as an admin", t["open_gitops_pr"], **pr)
 
     say(f"\n{len(events)} audit events; the last one:\n  {events[-1].to_dict()}")
     return outcomes
